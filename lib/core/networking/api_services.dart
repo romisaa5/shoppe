@@ -11,7 +11,6 @@ import '../../features/signup/data/models/signup_response.dart';
 import '../../features/verify_email/data/models/resend_otp/resend_otp_request_body.dart';
 import '../../features/verify_email/data/models/verify_otp/verify_otp_request_body.dart';
 import 'api_constants.dart';
-
 part 'api_services.g.dart';
 
 @RestApi(baseUrl: ApiConstants.apiBaseUrl)

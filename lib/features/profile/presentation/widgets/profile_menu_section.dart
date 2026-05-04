@@ -26,28 +26,15 @@ class ProfileMenuSection extends StatelessWidget {
         ),
         child: Column(
           children: [
-            _MenuItem(
-              icon: Icons.notifications_outlined,
-              title: 'Notifications',
-              subtitle: 'Configure notification preferences',
-              color: Color(0xFFEC4899),
-              onTap: () {},
-            ),
-            _DividerLine(),
-            _MenuItem(
-              icon: Icons.help_outline,
-              title: 'Help & Support',
-              subtitle: 'Get help and contact support',
-              color: Color(0xFF14B8A6),
-              onTap: () {},
-            ),
             _DividerLine(),
             _MenuItem(
               icon: Icons.info_outline,
               title: 'About',
               subtitle: 'App version and information',
               color: Color(0xFFF59E0B),
-              onTap: () {},
+              onTap: () {
+                context.pushNamed(Routes.aboutScreen);
+              },
             ),
             _DividerLine(),
             _MenuItem(

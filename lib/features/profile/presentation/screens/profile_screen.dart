@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-
 import '../../../../core/helpers/spacing.dart';
 import '../widgets/profile_info.dart';
 import '../widgets/profile_menu_section.dart';
-import '../widgets/profile_stats.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -16,8 +14,6 @@ class ProfileScreen extends StatelessWidget {
           children: [
             verticalSpace(32),
             ProfileInfo(),
-            verticalSpace(24),
-            ProfileStats(),
             verticalSpace(24),
             ProfileMenuSection(),
             verticalSpace(24),

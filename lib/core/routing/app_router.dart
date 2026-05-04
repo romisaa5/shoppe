@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shoppe/features/profile/presentation/screens/about_screen.dart';
 
 import '../../features/brands/data/repos/brands_repo.dart';
 import '../../features/brands/presentation/logic/brands_cubit.dart';
@@ -126,6 +127,8 @@ class AppRouter {
           ),
         );
 
+      case Routes.aboutScreen:
+        return MaterialPageRoute(builder: (_) => AboutScreen());
       default:
         return null;
     }

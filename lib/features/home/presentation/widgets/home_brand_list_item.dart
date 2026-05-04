@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theme/app_colors/light_app_colors.dart';
 import '../../../../core/theme/app_texts/app_text_styles.dart';
@@ -36,20 +35,36 @@ class HomeBrandListItem extends StatelessWidget {
                 borderRadius: BorderRadius.circular(16.r),
               ),
               child: Center(
-                child: SvgPicture.network(
-                  imagePath,
-                  fit: BoxFit.cover,
-                  colorFilter: ColorFilter.mode(
-                    LightAppColors.primary500,
-                    BlendMode.srcIn,
-                  ),
-                  height: 20.h,
-                  width: 20.w,
-                ),
+                child: imagePath.isEmpty
+                    ? const Icon(Icons.image_not_supported)
+                    : imagePath.toLowerCase().endsWith('.svg')
+                    ? SvgPicture.network(
+                        imagePath,
+                        fit: BoxFit.contain,
+                        height: 20.h,
+                        width: 20.w,
+                        colorFilter: ColorFilter.mode(
+                          LightAppColors.primary500,
+                          BlendMode.srcIn,
+                        ),
+                        placeholderBuilder: (context) =>
+                            const Center(child: CircularProgressIndicator()),
+                        errorBuilder: (context, error, stackTrace) {
+                          return const Icon(Icons.broken_image);
+                        },
+                      )
+                    : Image.network(
+                        imagePath,
+                        fit: BoxFit.contain,
+                        height: 20.h,
+                        width: 20.w,
+                        errorBuilder: (context, error, stackTrace) {
+                          return const Icon(Icons.image_not_supported);
+                        },
+                      ),
               ),
             ),
           ),
-
           horizontalSpace(4),
           Expanded(
             flex: 1,

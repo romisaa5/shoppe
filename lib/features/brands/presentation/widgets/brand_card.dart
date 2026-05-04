@@ -52,16 +52,7 @@ class BrandCard extends StatelessWidget {
                     width: 1.5.w,
                   ),
                 ),
-                child: Center(
-                  child: SvgPicture.network(
-                    imageUrl,
-                    fit: BoxFit.cover,
-                    placeholderBuilder: (context) =>
-                        const Center(child: CustomLoading()),
-                    height: 40.h,
-                    width: 40.w,
-                  ),
-                ),
+                child: Center(child: buildImage(imageUrl)),
               ),
             ),
 
@@ -97,4 +88,29 @@ class BrandCard extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget buildImage(String imageUrl) {
+  if (imageUrl.isEmpty) {
+    return const Icon(Icons.image_not_supported);
+  }
+
+  if (imageUrl.endsWith('.svg')) {
+    return SvgPicture.network(
+      imageUrl,
+      fit: BoxFit.contain,
+      placeholderBuilder: (context) => const Center(child: CustomLoading()),
+      errorBuilder: (context, error, stackTrace) {
+        return const Icon(Icons.broken_image);
+      },
+    );
+  }
+
+  return Image.network(
+    imageUrl,
+    fit: BoxFit.cover,
+    errorBuilder: (context, error, stackTrace) {
+      return const Icon(Icons.image_not_supported);
+    },
+  );
 }

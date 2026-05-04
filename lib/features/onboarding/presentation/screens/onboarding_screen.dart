@@ -8,14 +8,9 @@ import '../../../../core/theme/app_colors/light_app_colors.dart';
 import '../../../../core/theme/app_texts/app_text_styles.dart';
 import '../widgets/onboarding_choose_button.dart';
 
-class OnboardingScreen extends StatefulWidget {
+class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
 
-  @override
-  State<OnboardingScreen> createState() => _OnboardingScreenState();
-}
-
-class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

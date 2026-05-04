@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../../core/common/widgets/custom_app_button.dart';
 import '../../../../core/common/widgets/custom_loading.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theme/app_colors/light_app_colors.dart';
@@ -59,23 +57,11 @@ class ProductDetailsScreen extends StatelessWidget {
                                 product: data,
                                 discountedPrice: 100,
                               ),
-
                               verticalSpace(16),
-
                               const ProductDetailsSizeGuideline(),
-
                               verticalSpace(16),
-
                               ProductDescription(description: data.description),
-
                               verticalSpace(80),
-
-                              CustomAppButton(
-                                onPress: () {
-                                  //TODO: Add to cart functionality
-                                },
-                                text: 'Add to cart',
-                              ),
                             ],
                           ),
                         ),
